@@ -46,3 +46,7 @@ playground.xcworkspace
 
 # App icon cache
 *.appiconset/*.png
+
+# Xcode user-specific data
+xcuserdata/
+*.xcuserstate
