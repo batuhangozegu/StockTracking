@@ -54,10 +54,11 @@ struct OnboardingView: View {
             PageIndicator(numberOfPages: 3, currentPage: page)
                 .padding(.bottom,16)
             
-            ButtonView(title: page == 2 ? "Get Started" : "Continue") {
+            ButtonView(title: page == 2 ? "Get Started" : "Continue", action: {
                 if page < 2 { page += 1 }
                 else {hasSeenOnboarding = true}
-            }
+            }, color: Color.blue)
+            .padding(.horizontal)
             
         }
         .background(
