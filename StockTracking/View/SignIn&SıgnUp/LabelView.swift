@@ -38,6 +38,7 @@ struct LabelView: View {
                         .autocorrectionDisabled()
                         .submitLabel(.done)
                         .focused($focus)
+                        .font(.system(size: 16))
                 } else {
                     TextField(placeHolder, text: $text)
                         .textContentType(contentType)
@@ -45,6 +46,7 @@ struct LabelView: View {
                         .autocorrectionDisabled()
                         .submitLabel(.done)
                         .focused($focus)
+                        .font(.system(size: 16))
                 }
                 
                 if textFieldType == .password {
@@ -58,6 +60,7 @@ struct LabelView: View {
                 
             }
             .padding()
+            .frame(height: 55)
             .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .overlay(
