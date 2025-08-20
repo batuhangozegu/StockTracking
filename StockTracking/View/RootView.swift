@@ -16,7 +16,7 @@ struct RootView: View {
     
     var body: some View {
         if hasSeenOnboarding {
-            ContentView()
+            SignInView()
         }else{
             OnboardingView()
         }

@@ -1,27 +1,29 @@
 //
-//  SignInView.swift
+//  SignUpView.swift
 //  StockTracking
 //
-//  Created by Batuhan Gözegü on 18.08.2025.
+//  Created by Batuhan Gözegü on 20.08.2025.
 //
 
 import SwiftUI
 
-struct SignInView: View {
+struct SignUpView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var confirmPassword: String = ""
     @FocusState private var focusEmail: Bool
     @FocusState private var focusPassword: Bool
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationStack{
-            
+
             VStack(spacing: 30){
+                
                 VStack(alignment: .leading, spacing: 10){
-                    Text("Welcome Back")
+                    Text("Create Account")
                         .font(.system(size: 32, weight: .semibold))
-                    Text("Sign in to your account")
+                    Text("Join us to start tracking stocks")
                         .font(.system(size: 17))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -38,21 +40,22 @@ struct SignInView: View {
                     LabelView(
                         label: "Password",
                         placeHolder: "Enter your password",
-                        contentType: .password, textFieldType: .password,
+                        contentType: .password,
+                        textFieldType: .password,
                         text: $password)
+                    
+                    LabelView(
+                        label: " Confirm Password",
+                        placeHolder: "Confirm your password",
+                        contentType: .password,
+                        textFieldType: .password,
+                        text: $confirmPassword)
                     
                 }
                 
-                HStack{
-                    Button("Forgot Password?"){
-                        print("forgot password")
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                
                 VStack{
-                    ButtonView(title: "Sign In", action: {
-                        print("sign In")
+                    ButtonView(title: "Sign Up", action: {
+                        print("sign up")
                     }, color: Color.blue)
                 }
                 
@@ -60,9 +63,8 @@ struct SignInView: View {
                 
                 VStack(spacing: 20){
                     
-                    
                     ButtonView(
-                        title: "Sign In with Apple",
+                        title: "Sign Up with Apple",
                         action: {
                             print("apple")
                         },
@@ -72,7 +74,7 @@ struct SignInView: View {
                         hasShadow: false)
                     
                     ButtonView(
-                        title: "Sign In with Google",
+                        title: "Sign Up with Google",
                         action: {
                             print("google")
                         },
@@ -85,21 +87,20 @@ struct SignInView: View {
                 .frame(maxWidth: .infinity)
                 
                 HStack{
-                    Text("Don't have an account?")
-                    NavigationLink("Sign Up"){
-                        SignUpView()
-                            .toolbarVisibility(.hidden)
+                    Text("Already have an account?")
+                    Button("Sign In"){
+                        dismiss()
                     }
                     
                 }
                 
                 Spacer()
             }
+            
             .padding()
         }
     }
-}
 
 #Preview {
-    SignInView()
+    SignUpView()
 }
