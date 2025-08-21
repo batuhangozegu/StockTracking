@@ -51,9 +51,11 @@ struct SignInView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 VStack{
-                    ButtonView(title: "Sign In", action: {
-                        print("sign In")
-                    }, color: Color.blue)
+                    
+                        NavigationLink("Sign ın"){
+                            BottomBar()
+                                .toolbarVisibility(.hidden)
+                        }
                 }
                 
                 OrView()
